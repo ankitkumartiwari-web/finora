@@ -19,15 +19,16 @@ It provides a polished UI for:
 6. Dashboard and Insights
 7. Navigation and Responsive Behavior
 8. Theming and Visual System
-9. Tech Stack
-10. Project Structure
-11. State Management
-12. Environment Variables
-13. Setup and Local Development
-14. Build and Deployment
-15. Testing
-16. Known Limitations
-17. Troubleshooting
+9. Images
+10. Tech Stack
+11. Project Structure
+12. State Management
+13. Environment Variables
+14. Setup and Local Development
+15. Build and Deployment
+16. Testing
+17. Known Limitations
+18. Troubleshooting
 
 ## Overview
 
@@ -59,7 +60,7 @@ The app uses local persisted state (Zustand + localStorage) for core data and in
 - Role-based UX (admin vs viewer)
 - Responsive layout for mobile, tablet, and desktop
 - Light and dark theme support
-- Global top navigation search input across pages and screen sizes
+- Global top navigation search input across pages and screen sizes, with automatic redirect to Transactions when a query is entered
 
 ## User Roles and Permissions
 
@@ -151,7 +152,7 @@ Navigation mode:
 - Single-page state-driven navigation (not route-based pages)
 
 Global controls:
-- Search input in top navigation on all pages and all screen sizes
+- Search input in top navigation on all pages and all screen sizes; typing a query redirects to Transactions and filters matching transactions
 - Transactions-only actions (reset filters/export) shown only when Transactions page is active
 
 ## Theming and Visual System
@@ -169,6 +170,20 @@ Design style:
 - glassmorphism-inspired cards and surfaces
 - animated background effects
 - custom color palette optimized for both light and dark contexts
+
+## Images
+
+The app now includes a set of screenshots and preview images for the UI:
+
+- [Dashboard light preview](public/images/dashboard_light.png)
+- [Dashboard dark preview](public/images/dashboard_dark.png)
+- [Dark desktop preview](public/images/dark_desktop.png)
+- [Light desktop preview](public/images/light_desktop.png)
+- [Insights overview](public/images/insights.png)
+- [Insights detail view](public/images/insights_1.png)
+- [Mobile view preview](public/images/mobile_view.png)
+
+These images are useful for showing the app’s layout, theme differences, and responsive behavior in the README.
 
 ## Tech Stack
 
