@@ -95,6 +95,12 @@ export default function App() {
     window.localStorage.setItem(ACTIVE_PAGE_STORAGE_KEY, activePage);
   }, [activePage]);
 
+  useEffect(() => {
+    if (activePage !== "transactions" && createTransactionTrigger !== 0) {
+      setCreateTransactionTrigger(0);
+    }
+  }, [activePage, createTransactionTrigger]);
+
   const handleCreateTransaction = () => {
     setTransactionsFilterPreset("all");
     setActivePage("transactions");

@@ -16,3 +16,6 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Netlify local state
+.netlify/
