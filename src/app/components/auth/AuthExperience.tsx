@@ -35,6 +35,11 @@ export function AuthExperience() {
 
   const handleThemeToggle = () => {
     const nextTheme: ThemeMode = currentTheme === "dark" ? "light" : "dark";
+    console.info("[Finora theme debug] AuthExperience toggle", {
+      currentTheme,
+      nextTheme,
+      resolvedTheme,
+    });
     setThemePreference(nextTheme);
     setTheme(nextTheme);
   };

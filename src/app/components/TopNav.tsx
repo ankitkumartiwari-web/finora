@@ -49,6 +49,13 @@ export function TopNav({ title, activePage, searchQuery, onSearchChange, role, o
 
   const handleThemeToggle = () => {
     const nextTheme: ThemeMode = activeTheme === "dark" ? "light" : "dark";
+    console.info("[Finora theme debug] TopNav toggle", {
+      currentTheme: activeTheme,
+      nextTheme,
+      storedTheme,
+      theme,
+      resolvedTheme,
+    });
     setTheme(nextTheme);
     setThemePreference(nextTheme);
   };

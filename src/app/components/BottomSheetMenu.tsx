@@ -39,6 +39,12 @@ export function BottomSheetMenu({
 
   const handleThemeToggle = (nextDark: boolean) => {
     const nextTheme: ThemeMode = nextDark ? "dark" : "light";
+    console.info("[Finora theme debug] BottomSheetMenu toggle", {
+      currentTheme: storedTheme ?? theme,
+      nextTheme,
+      storedTheme,
+      theme,
+    });
     setThemePreference(nextTheme);
     setTheme(nextTheme);
   };

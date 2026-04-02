@@ -9,12 +9,20 @@ export function ThemeSynchronizer() {
 
   useEffect(() => {
     if (storedTheme) {
+      console.info("[Finora theme debug] ThemeSynchronizer apply store theme", {
+        storedTheme,
+        resolvedTheme,
+      });
       setTheme(storedTheme);
     }
   }, [storedTheme, setTheme]);
 
   useEffect(() => {
     if (resolvedTheme && resolvedTheme !== storedTheme) {
+      console.info("[Finora theme debug] ThemeSynchronizer sync resolved theme", {
+        storedTheme,
+        resolvedTheme,
+      });
       setThemePreference(resolvedTheme as "light" | "dark");
     }
   }, [resolvedTheme, storedTheme, setThemePreference]);

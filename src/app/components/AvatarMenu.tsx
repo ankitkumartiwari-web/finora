@@ -29,6 +29,12 @@ export function AvatarMenu({
 
   const handleThemeToggle = (nextDark: boolean) => {
     const nextTheme: ThemeMode = nextDark ? "dark" : "light";
+    console.info("[Finora theme debug] AvatarMenu toggle", {
+      currentTheme: storedTheme ?? theme,
+      nextTheme,
+      storedTheme,
+      theme,
+    });
     setThemePreference(nextTheme);
     setTheme(nextTheme);
   };
