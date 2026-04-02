@@ -34,12 +34,6 @@ export function AvatarMenu({
   };
 
   useEffect(() => {
-    if (import.meta.env.DEV) {
-      console.log("Finora theme state:", storedTheme ?? theme);
-    }
-  }, [storedTheme, theme]);
-
-  useEffect(() => {
     if (!open) {
       return;
     }

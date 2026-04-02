@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useTheme } from "next-themes";
-import { ThemeMode, useAppStore } from "../store/useAppStore";
+import { useAppStore } from "../store/useAppStore";
 
 export function ThemeSynchronizer() {
   const { setTheme, resolvedTheme } = useTheme();
   const storedTheme = useAppStore((state) => state.theme);
-  const setStoredTheme = useAppStore((state) => state.setTheme);
+  const setThemePreference = useAppStore((state) => state.setTheme);
 
   useEffect(() => {
     if (storedTheme) {
@@ -15,9 +15,9 @@ export function ThemeSynchronizer() {
 
   useEffect(() => {
     if (resolvedTheme && resolvedTheme !== storedTheme) {
-      setStoredTheme(resolvedTheme as ThemeMode);
+      setThemePreference(resolvedTheme as "light" | "dark");
     }
-  }, [resolvedTheme, storedTheme, setStoredTheme]);
+  }, [resolvedTheme, storedTheme, setThemePreference]);
 
   return null;
 }

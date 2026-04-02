@@ -92,13 +92,6 @@ export default function App() {
   }, [syncAuthUser]);
 
   useEffect(() => {
-    if (import.meta.env.DEV && isAuthenticated) {
-      console.log("Finora role state:", role);
-      console.log("Finora theme state:", theme);
-    }
-  }, [isAuthenticated, role, theme]);
-
-  useEffect(() => {
     window.localStorage.setItem(ACTIVE_PAGE_STORAGE_KEY, activePage);
   }, [activePage]);
 

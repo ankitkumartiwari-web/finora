@@ -2,7 +2,7 @@ import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Eye, EyeOff, Mail, Lock, User, UploadCloud, Moon, Sun, ArrowRight } from "lucide-react";
 import { useTheme } from "next-themes";
-import { ThemeMode, useAppStore } from "../../store/useAppStore";
+import { type ThemeMode, useAppStore } from "../../store/useAppStore";
 import { SmokeBackground } from "../ui/spooky-smoke-animation";
 
 interface AuthFormState {
