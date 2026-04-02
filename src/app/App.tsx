@@ -15,8 +15,21 @@ import { motion } from "motion/react";
 import { buildTransactionExport } from "./lib/finance";
 import { supabase } from "./lib/supabase";
 
+const APP_PAGES = ["dashboard", "transactions", "insights", "notifications", "help", "settings"] as const;
+type AppPage = (typeof APP_PAGES)[number];
+const ACTIVE_PAGE_STORAGE_KEY = "finora-active-page";
+
+function getInitialActivePage(): AppPage {
+  if (typeof window === "undefined") {
+    return "dashboard";
+  }
+
+  const storedPage = window.localStorage.getItem(ACTIVE_PAGE_STORAGE_KEY);
+  return APP_PAGES.includes(storedPage as AppPage) ? (storedPage as AppPage) : "dashboard";
+}
+
 export default function App() {
-  const [activePage, setActivePage] = useState("dashboard");
+  const [activePage, setActivePage] = useState<AppPage>(getInitialActivePage);
   const [globalSearchQuery, setGlobalSearchQuery] = useState("");
   const [transactionsFilterPreset, setTransactionsFilterPreset] = useState<
     "all" | "income" | "expense"
@@ -85,6 +98,10 @@ export default function App() {
     }
   }, [isAuthenticated, role, theme]);
 
+  useEffect(() => {
+    window.localStorage.setItem(ACTIVE_PAGE_STORAGE_KEY, activePage);
+  }, [activePage]);
+
   const handleCreateTransaction = () => {
     setTransactionsFilterPreset("all");
     setActivePage("transactions");
@@ -92,7 +109,7 @@ export default function App() {
   };
 
   const handleNavigate = (
-    page: string,
+    page: AppPage,
     options?: {
       transactionType?: "all" | "income" | "expense";
       resetFilters?: boolean;
