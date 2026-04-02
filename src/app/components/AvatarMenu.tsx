@@ -23,19 +23,17 @@ export function AvatarMenu({
   const [open, setOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const storedTheme = useAppStore((state) => state.theme);
-  const setThemePreference = useAppStore((state) => state.setTheme);
 
-  const isDarkTheme = (storedTheme ?? theme) === "dark";
+  const isDarkTheme = (theme ?? storedTheme) === "dark";
 
   const handleThemeToggle = (nextDark: boolean) => {
     const nextTheme: ThemeMode = nextDark ? "dark" : "light";
     console.info("[Finora theme debug] AvatarMenu toggle", {
-      currentTheme: storedTheme ?? theme,
+      currentTheme: theme ?? storedTheme,
       nextTheme,
       storedTheme,
       theme,
     });
-    setThemePreference(nextTheme);
     setTheme(nextTheme);
   };
 

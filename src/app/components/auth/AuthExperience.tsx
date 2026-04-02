@@ -29,18 +29,17 @@ export function AuthExperience() {
   const login = useAppStore((state) => state.login);
   const signup = useAppStore((state) => state.signup);
   const currentTheme = useAppStore((state) => state.theme);
-  const setThemePreference = useAppStore((state) => state.setTheme);
   const { setTheme, resolvedTheme } = useTheme();
-  const brandLogo = resolvedTheme === "dark" ? "/images/darkmode.webp" : "/images/lightmode.webp";
+  const activeTheme = (resolvedTheme as ThemeMode | undefined) ?? currentTheme ?? "dark";
+  const brandLogo = activeTheme === "dark" ? "/images/darkmode.webp" : "/images/lightmode.webp";
 
   const handleThemeToggle = () => {
     const nextTheme: ThemeMode = currentTheme === "dark" ? "light" : "dark";
     console.info("[Finora theme debug] AuthExperience toggle", {
-      currentTheme,
+      currentTheme: activeTheme,
       nextTheme,
       resolvedTheme,
     });
-    setThemePreference(nextTheme);
     setTheme(nextTheme);
   };
 
@@ -178,7 +177,7 @@ export function AuthExperience() {
               onClick={handleThemeToggle}
               className="rounded-2xl border border-gray-200 dark:border-white/10 p-3 text-gray-600 dark:text-gray-200"
             >
-              {currentTheme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {activeTheme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </motion.button>
           </div>
 

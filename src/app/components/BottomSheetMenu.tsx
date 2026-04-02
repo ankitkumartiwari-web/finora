@@ -34,18 +34,16 @@ export function BottomSheetMenu({
 }: BottomSheetMenuProps) {
   const { theme, setTheme } = useTheme();
   const storedTheme = useAppStore((state) => state.theme);
-  const setThemePreference = useAppStore((state) => state.setTheme);
-  const isDarkTheme = (storedTheme ?? theme) === "dark";
+  const isDarkTheme = ((theme as ThemeMode | undefined) ?? storedTheme) === "dark";
 
   const handleThemeToggle = (nextDark: boolean) => {
     const nextTheme: ThemeMode = nextDark ? "dark" : "light";
     console.info("[Finora theme debug] BottomSheetMenu toggle", {
-      currentTheme: storedTheme ?? theme,
+      currentTheme: theme ?? storedTheme,
       nextTheme,
       storedTheme,
       theme,
     });
-    setThemePreference(nextTheme);
     setTheme(nextTheme);
   };
 

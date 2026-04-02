@@ -35,9 +35,8 @@ interface TopNavProps {
 export function TopNav({ title, activePage, searchQuery, onSearchChange, role, onRoleChange, onNavigate, avatarUrl, userName, userSubtitle, fallbackInitials = "PF", onLogout, onExport }: TopNavProps) {
   const { theme, resolvedTheme, setTheme } = useTheme();
   const storedTheme = useAppStore((state) => state.theme);
-  const setThemePreference = useAppStore((state) => state.setTheme);
   const [searchFocused, setSearchFocused] = useState(false);
-  const activeTheme = storedTheme ?? (resolvedTheme as ThemeMode | undefined) ?? (theme as ThemeMode | undefined) ?? "dark";
+  const activeTheme = (resolvedTheme as ThemeMode | undefined) ?? (theme as ThemeMode | undefined) ?? storedTheme ?? "dark";
   const brandLogo = activeTheme === "dark" ? "/images/darkmode.webp" : "/images/lightmode.webp";
   const todayLabel = useMemo(() => {
     return new Intl.DateTimeFormat("en", {
@@ -57,7 +56,6 @@ export function TopNav({ title, activePage, searchQuery, onSearchChange, role, o
       resolvedTheme,
     });
     setTheme(nextTheme);
-    setThemePreference(nextTheme);
   };
 
   const displayName = userName || "Jordan Diaz";
