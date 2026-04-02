@@ -175,7 +175,7 @@ export function Dashboard({ onNavigate, globalSearchQuery = "" }: DashboardProps
 
   return (
     <section className="space-y-8 text-gray-900 dark:text-gray-100">
-      <div className="grid gap-6 grid-cols-1 xl:grid-cols-12 items-start">
+      <div className="grid gap-6 grid-cols-1 xl:grid-cols-12">
         <GlassCard className="xl:col-span-5 p-4 sm:p-6 lg:p-8">
           <div className="flex items-start justify-between">
             <div>
