@@ -6,7 +6,6 @@ import {
   LogOut,
   Settings,
   HelpCircle,
-  Search,
   type LucideIcon,
 } from "lucide-react";
 import { motion } from "motion/react";
@@ -143,16 +142,6 @@ export function Sidebar({ activePage, onNavigate }: SidebarProps) {
             />
           </button>
         </motion.div>
-
-        <div className="relative mb-6">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" />
-          <input
-            type="text"
-            placeholder="Search"
-            className="w-full pl-11 pr-4 py-3 rounded-2xl bg-[#f4f6fa] dark:bg-[#1c1c29] border border-transparent focus:border-green-500 dark:focus:border-[#c78dff] text-sm text-gray-600 dark:text-gray-200"
-          />
-        </div>
-
       <p className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-[0.2em] mb-3">Menu</p>
       <nav className="flex-1 space-y-2">
         {menuItems.map((item, index) => {
