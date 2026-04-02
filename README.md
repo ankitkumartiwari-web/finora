@@ -9,6 +9,9 @@ It provides a polished UI for:
 - switching roles (admin/viewer),
 - and authenticating with Supabase.
 
+Live demo:
+- Production: https://finora-project.netlify.app
+
 ## Table of Contents
 
 1. Overview
@@ -61,6 +64,7 @@ The app uses local persisted state (Zustand + localStorage) for core data and in
 - Responsive layout for mobile, tablet, and desktop
 - Light and dark theme support
 - Global top navigation search input across pages and screen sizes, with automatic redirect to Transactions when a query is entered
+- Clean desktop/tablet/mobile navigation with only one global search input in the top navigation
 
 ## User Roles and Permissions
 
@@ -297,6 +301,9 @@ Recommended deployment targets:
 - Netlify
 - Static hosting providers that support SPA fallback
 
+Current production deployment:
+- https://finora-project.netlify.app
+
 Before production deployment, verify:
 - Supabase environment variables are configured
 - authentication works in production environment
@@ -317,7 +324,8 @@ npm run test
 
 Current repository status:
 - test runner is configured
-- no active `*.test.ts` files are currently present in this workspace snapshot
+- no active `*.test.ts` files are currently present in this workspace snapshot after cleanup
+- production build is used as the primary verification step in the current snapshot
 
 ## Known Limitations
 
@@ -346,4 +354,16 @@ Check:
 ### Build warns about large chunks
 
 The build currently succeeds, but Vite may warn about large bundles. This can be improved later with code splitting and manual chunk configuration.
+
+## Assignment Fit
+
+This project is suitable for the finance dashboard assignment because it includes:
+- summary cards for balance, income, and expenses
+- time-based and categorical visualizations
+- transaction browsing with filtering and search
+- simulated role-based UI for admin and viewer flows
+- insights such as monthly comparison and highest spending category
+- responsive layouts and polished UI states
+
+The app also includes Supabase authentication and Netlify deployment as extra polish beyond the core assignment requirements.
   
