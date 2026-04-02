@@ -33,10 +33,12 @@ interface TopNavProps {
 }
 
 export function TopNav({ title, activePage, searchQuery, onSearchChange, role, onRoleChange, onNavigate, avatarUrl, userName, userSubtitle, fallbackInitials = "PF", onLogout, onExport }: TopNavProps) {
-  const { theme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
+  const storedTheme = useAppStore((state) => state.theme);
   const setThemePreference = useAppStore((state) => state.setTheme);
   const [searchFocused, setSearchFocused] = useState(false);
-  const brandLogo = theme === "dark" ? "/images/darkmode.webp" : "/images/lightmode.webp";
+  const activeTheme = storedTheme ?? (resolvedTheme as ThemeMode | undefined) ?? (theme as ThemeMode | undefined) ?? "dark";
+  const brandLogo = activeTheme === "dark" ? "/images/darkmode.webp" : "/images/lightmode.webp";
   const todayLabel = useMemo(() => {
     return new Intl.DateTimeFormat("en", {
       weekday: "long",
@@ -46,7 +48,7 @@ export function TopNav({ title, activePage, searchQuery, onSearchChange, role, o
   }, []);
 
   const handleThemeToggle = () => {
-    const nextTheme: ThemeMode = theme === "dark" ? "light" : "dark";
+    const nextTheme: ThemeMode = activeTheme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
     setThemePreference(nextTheme);
   };
@@ -206,7 +208,7 @@ export function TopNav({ title, activePage, searchQuery, onSearchChange, role, o
               onClick={handleThemeToggle}
               className="p-3 rounded-2xl border border-gray-100 text-gray-500 hover:text-[#0b6b45] dark:border-[#1f1f2c] dark:text-gray-300 dark:hover:text-[#c78dff]"
             >
-              {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              {activeTheme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </motion.button>
 
             <motion.div
