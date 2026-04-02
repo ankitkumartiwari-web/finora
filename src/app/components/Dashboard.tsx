@@ -316,8 +316,8 @@ export function Dashboard({ onNavigate, globalSearchQuery = "" }: DashboardProps
               <ComposedChart
                 data={moneyFlow}
                 margin={{ top: 12, right: 24, left: 16, bottom: 8 }}
-                barGap={12}
-                barCategoryGap="20%"
+                barGap={6}
+                barCategoryGap="28%"
               >
                 <CartesianGrid stroke="#f1f5f9" vertical={false} />
                 <XAxis
@@ -329,16 +329,17 @@ export function Dashboard({ onNavigate, globalSearchQuery = "" }: DashboardProps
                 />
                 <YAxis hide />
                 <Tooltip contentStyle={tooltipStyle} formatter={(value: number) => formatCurrency(value)} />
-                <Bar dataKey="income" fill="#0b6b45" radius={[12, 12, 12, 12]} barSize={22} />
-                <Bar dataKey="expense" fill="#b0e6c2" radius={[12, 12, 12, 12]} barSize={22} />
+                <Bar dataKey="income" fill="#0b6b45" barSize={18} radius={[10, 10, 0, 0]} />
+                <Bar dataKey="expense" fill="#b0e6c2" barSize={18} radius={[10, 10, 0, 0]} />
                 <Line
                   type="monotone"
                   dataKey="savings"
                   stroke="#ffd166"
-                  strokeWidth={4}
+                  strokeWidth={3}
                   strokeLinecap="round"
                   connectNulls
-                  dot={false}
+                  dot={{ r: 4, fill: "#ffd166", stroke: "#ffffff", strokeWidth: 2 }}
+                  activeDot={{ r: 6, fill: "#ffd166", stroke: "#ffffff", strokeWidth: 2 }}
                 />
               </ComposedChart>
             </ResponsiveContainer>

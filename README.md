@@ -175,13 +175,33 @@ Design style:
 
 The app now includes a set of screenshots and preview images for the UI:
 
-- [Dashboard light preview](public/images/dashboard_light.png)
-- [Dashboard dark preview](public/images/dashboard_dark.png)
-- [Dark desktop preview](public/images/dark_desktop.png)
-- [Light desktop preview](public/images/light_desktop.png)
-- [Insights overview](public/images/insights.png)
-- [Insights detail view](public/images/insights_1.png)
-- [Mobile view preview](public/images/mobile_view.png)
+### Dashboard Light Preview
+
+![Dashboard light preview](public/images/dashboard_light.png)
+
+### Dashboard Dark Preview
+
+![Dashboard dark preview](public/images/dashboard_dark.png)
+
+### Dark Desktop Preview
+
+![Dark desktop preview](public/images/dark_desktop.png)
+
+### Light Desktop Preview
+
+![Light desktop preview](public/images/light_desktop.png)
+
+### Insights Overview
+
+![Insights overview](public/images/insights.png)
+
+### Insights Detail View
+
+![Insights detail view](public/images/insights_1.png)
+
+### Mobile View Preview
+
+![Mobile view preview](public/images/mobile_view.png)
 
 These images are useful for showing the app’s layout, theme differences, and responsive behavior in the README.
 
