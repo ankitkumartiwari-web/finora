@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
 import { MeshGradient, DotOrbit } from "@paper-design/shaders-react"
+import { DynamicFallbackBackground } from "./DynamicFallbackBackground"
 
 export default function DemoOne() {
   const { resolvedTheme } = useTheme()
@@ -44,7 +45,7 @@ export default function DemoOne() {
   return (
     <div className={`w-full h-full relative overflow-hidden ${isDark ? "bg-black" : "bg-[#f8f6ff]"}`}>
       {!isWebglAvailable && (
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_22%,rgba(255,255,255,0.45),transparent_34%),radial-gradient(circle_at_78%_16%,rgba(201,191,255,0.45),transparent_38%),radial-gradient(circle_at_60%_80%,rgba(106,198,255,0.28),transparent_36%)]" />
+        <DynamicFallbackBackground />
       )}
 
       {isWebglAvailable && activeEffect === "mesh" && (

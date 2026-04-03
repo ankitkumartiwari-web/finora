@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 import { type ThemeMode, useAppStore } from "../../store/useAppStore";
 import { SmokeBackground } from "../ui/spooky-smoke-animation";
 import { ShaderErrorBoundary } from "../ui/ShaderErrorBoundary";
+import { DynamicFallbackBackground } from "../ui/DynamicFallbackBackground";
 
 interface AuthFormState {
   name: string;
@@ -124,7 +125,7 @@ export function AuthExperience() {
       <div className="absolute inset-0">
         <div className="absolute inset-0 opacity-35 sm:opacity-55 dark:opacity-45 sm:dark:opacity-65">
           <ShaderErrorBoundary
-            fallback={<div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_24%,rgba(255,255,255,0.32),transparent_40%),radial-gradient(circle_at_78%_12%,rgba(155,123,255,0.26),transparent_44%),radial-gradient(circle_at_62%_82%,rgba(26,143,97,0.24),transparent_38%)]" />}
+            fallback={<DynamicFallbackBackground />}
           >
             <SmokeBackground smokeColor={resolvedTheme === "dark" ? "#9b7bff" : "#1a8f61"} />
           </ShaderErrorBoundary>
