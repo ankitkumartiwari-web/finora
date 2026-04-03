@@ -14,7 +14,7 @@ export default function DemoOne() {
   useEffect(() => {
     const canvas = document.createElement("canvas")
     try {
-      const context = canvas.getContext("webgl2") || canvas.getContext("webgl")
+      const context = canvas.getContext("webgl2")
       setIsWebglAvailable(Boolean(context))
     } catch {
       setIsWebglAvailable(false)
