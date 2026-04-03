@@ -14,6 +14,7 @@ import { Plus } from "lucide-react";
 import { motion } from "motion/react";
 import { buildTransactionExport } from "./lib/finance";
 import { supabase } from "./lib/supabase";
+import { ShaderErrorBoundary } from "./components/ui/ShaderErrorBoundary";
 
 const APP_PAGES = ["dashboard", "transactions", "insights", "notifications", "help", "settings"] as const;
 type AppPage = (typeof APP_PAGES)[number];
@@ -155,7 +156,11 @@ export default function App() {
       <ThemeSynchronizer />
       <div className="relative min-h-screen overflow-hidden bg-[#e2e7ee] dark:bg-[#050509]">
         <div className="absolute inset-0 pointer-events-none opacity-70 dark:opacity-100">
-          <DemoOne />
+          <ShaderErrorBoundary
+            fallback={<div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.35),transparent_38%),radial-gradient(circle_at_80%_10%,rgba(199,141,255,0.28),transparent_40%),radial-gradient(circle_at_65%_85%,rgba(106,198,255,0.2),transparent_36%)]" />}
+          >
+            <DemoOne />
+          </ShaderErrorBoundary>
         </div>
 
         {isAuthenticated ? (

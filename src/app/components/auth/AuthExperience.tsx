@@ -4,6 +4,7 @@ import { Eye, EyeOff, Mail, Lock, User, UploadCloud, Moon, Sun, ArrowRight } fro
 import { useTheme } from "next-themes";
 import { type ThemeMode, useAppStore } from "../../store/useAppStore";
 import { SmokeBackground } from "../ui/spooky-smoke-animation";
+import { ShaderErrorBoundary } from "../ui/ShaderErrorBoundary";
 
 interface AuthFormState {
   name: string;
@@ -122,7 +123,11 @@ export function AuthExperience() {
     <div className="relative min-h-screen overflow-hidden bg-[#dfe7f7] dark:bg-[#050509]">
       <div className="absolute inset-0">
         <div className="absolute inset-0 opacity-35 sm:opacity-55 dark:opacity-45 sm:dark:opacity-65">
-          <SmokeBackground smokeColor={resolvedTheme === "dark" ? "#9b7bff" : "#1a8f61"} />
+          <ShaderErrorBoundary
+            fallback={<div className="absolute inset-0 bg-[radial-gradient(circle_at_16%_24%,rgba(255,255,255,0.32),transparent_40%),radial-gradient(circle_at_78%_12%,rgba(155,123,255,0.26),transparent_44%),radial-gradient(circle_at_62%_82%,rgba(26,143,97,0.24),transparent_38%)]" />}
+          >
+            <SmokeBackground smokeColor={resolvedTheme === "dark" ? "#9b7bff" : "#1a8f61"} />
+          </ShaderErrorBoundary>
         </div>
         <motion.div
           className="absolute -top-20 -right-10 h-64 w-64 sm:-top-28 sm:-right-16 sm:h-96 sm:w-96 rounded-full bg-[#0b6b45]/30 dark:bg-[#b56fff]/25 blur-3xl"
